@@ -44,10 +44,8 @@ func (s Server) listenAndServe(ctx context.Context) error {
 		Handler: s.Handler,
 	}
 	g.Go(func() error {
-		select {
-		case <-ctx.Done():
-			return s1.Shutdown(ctx)
-		}
+		<-ctx.Done()
+		return s1.Shutdown(ctx)
 	})
 	g.Go(func() error {
 		return s1.ListenAndServe()
@@ -75,12 +73,10 @@ func (s Server) listenAndServeTLS(ctx context.Context) error {
 		)
 	})
 	g.Go(func() error {
-		select {
-		case <-ctx.Done():
-			s1.Shutdown(ctx)
-			s2.Shutdown(ctx)
-			return nil
-		}
+		<-ctx.Done()
+		s1.Shutdown(ctx)
+		s2.Shutdown(ctx)
+		return nil
 	})
 	return g.Wait()
 }
@@ -114,12 +110,10 @@ func (s Server) listenAndServeAcme(ctx context.Context) error {
 		return s2.ListenAndServeTLS("", "")
 	})
 	g.Go(func() error {
-		select {
-		case <-ctx.Done():
-			s1.Shutdown(ctx)
-			s2.Shutdown(ctx)
-			return nil
-		}
+		<-ctx.Done()
+		s1.Shutdown(ctx)
+		s2.Shutdown(ctx)
+		return nil
 	})
 	return g.Wait()
 }

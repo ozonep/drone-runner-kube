@@ -9,8 +9,8 @@ import (
 	"testing"
 
 	"github.com/ozonep/drone-runner-kube/engine/resource"
-	"github.com/ozonep/drone/pkg/drone"
 	"github.com/ozonep/drone-runner-kube/pkg/manifest"
+	"github.com/ozonep/drone/pkg/drone"
 )
 
 func TestLint(t *testing.T) {
@@ -206,14 +206,14 @@ func TestLint(t *testing.T) {
 			lint := New(test.patterns)
 			repo := &drone.Repo{Trusted: test.trusted, Slug: test.repo}
 			err = lint.Lint(resources.Resources[0].(*resource.Pipeline), repo)
-			if err == nil && test.invalid == true {
+			if err == nil && test.invalid {
 				t.Logf("yaml: %s", test.path)
 				t.Logf("trusted: %v", test.trusted)
 				t.Errorf("Expect lint error")
 				return
 			}
 
-			if err != nil && test.invalid == false {
+			if err != nil && !test.invalid {
 				t.Logf("yaml: %s", test.path)
 				t.Logf("trusted: %v", test.trusted)
 				t.Errorf("Expect lint error is nil, got %s", err)

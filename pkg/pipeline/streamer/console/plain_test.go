@@ -6,6 +6,7 @@ package console
 
 import (
 	"bytes"
+	"context"
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
@@ -15,7 +16,7 @@ func TestPlain(t *testing.T) {
 	buf := new(bytes.Buffer)
 
 	sess := New(false)
-	w := sess.Stream(nil, nil, "clone").(*plain)
+	w := sess.Stream(context.TODO(), nil, "clone").(*plain)
 	w.base = buf
 	w.Write([]byte("hello\nworld"))
 	w.Close()

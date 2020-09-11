@@ -12,8 +12,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ozonep/drone/pkg/drone"
 	"github.com/ozonep/drone-runner-kube/pkg/client"
+	"github.com/ozonep/drone/pkg/drone"
 )
 
 // defaultLimit is the default maximum log size in bytes.
@@ -83,7 +83,7 @@ func (b *Writer) Write(p []byte) (n int, err error) {
 		b.size = b.size + len(part)
 		b.num++
 
-		if b.stopped() == false {
+		if !b.stopped() {
 			b.Lock()
 			b.pending = append(b.pending, line)
 			b.Unlock()
@@ -143,7 +143,7 @@ func (b *Writer) clear() {
 func (b *Writer) stop() bool {
 	b.Lock()
 	var closed bool
-	if b.closed == false {
+	if !b.closed {
 		close(b.close)
 		closed = true
 		b.closed = true

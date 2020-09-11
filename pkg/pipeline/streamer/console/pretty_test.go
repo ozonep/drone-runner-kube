@@ -6,6 +6,7 @@ package console
 
 import (
 	"bytes"
+	"context"
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
@@ -15,7 +16,7 @@ func TestPretty(t *testing.T) {
 	buf := new(bytes.Buffer)
 
 	sess := New(true)
-	w := sess.Stream(nil, nil, "clone").(*pretty)
+	w := sess.Stream(context.TODO(), nil, "clone").(*pretty)
 	w.base = buf
 	w.Write([]byte("hello\nworld"))
 	w.Close()

@@ -8,8 +8,8 @@ import (
 	"context"
 	"testing"
 
-	"github.com/ozonep/drone/pkg/drone"
 	"github.com/ozonep/drone-runner-kube/pkg/pipeline"
+	"github.com/ozonep/drone/pkg/drone"
 
 	"github.com/google/go-cmp/cmp"
 )
@@ -20,7 +20,7 @@ func TestReportStage(t *testing.T) {
 	s := &drone.Stage{ID: 3, Labels: map[string]string{}}
 
 	v := New(&nopReporter{})
-	v.ReportStage(nil, &pipeline.State{
+	v.ReportStage(context.TODO(), &pipeline.State{
 		Repo:  r,
 		Build: b,
 		Stage: s,
@@ -62,7 +62,7 @@ func TestReportStep(t *testing.T) {
 	s := &drone.Stage{ID: 3, Labels: map[string]string{}}
 
 	v := New(&nopReporter{})
-	v.ReportStep(nil, &pipeline.State{
+	v.ReportStep(context.TODO(), &pipeline.State{
 		Repo:  r,
 		Build: b,
 		Stage: s,

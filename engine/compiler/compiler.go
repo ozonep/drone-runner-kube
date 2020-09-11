@@ -330,7 +330,7 @@ func (c *Compiler) Compile(ctx context.Context, args runtime.CompilerArgs) runti
 	}
 
 	// create the clone step
-	if pipeline.Clone.Disable == false {
+	if !pipeline.Clone.Disable {
 		step := createClone(pipeline)
 		step.ID = random()
 		step.Envs = environ.Combine(envs, step.Envs)
@@ -418,11 +418,11 @@ func (c *Compiler) Compile(ctx context.Context, args runtime.CompilerArgs) runti
 		}
 	}
 
-	if isGraph(spec) == false {
+	if !isGraph(spec) {
 		configureSerial(spec)
-	} else if pipeline.Clone.Disable == false {
+	} else if !pipeline.Clone.Disable {
 		configureCloneDeps(spec)
-	} else if pipeline.Clone.Disable == true {
+	} else if pipeline.Clone.Disable {
 		removeCloneDeps(spec)
 	}
 

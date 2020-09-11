@@ -148,7 +148,7 @@ func (s *State) skip(v *drone.Step) {
 // helper function returns true if the overall pipeline is
 // finished and remaining steps skipped.
 func (s *State) skipped() bool {
-	if s.finished() == false {
+	if !s.finished() {
 		return false
 	}
 	for _, v := range s.Stage.Steps {
@@ -334,7 +334,7 @@ func (s *State) update() {
 			s.Build.Status = drone.StatusError
 			return
 		case drone.StatusFailing:
-			if v.ErrIgnore == false {
+			if !v.ErrIgnore {
 				s.Stage.Status = drone.StatusFailing
 				s.Build.Status = drone.StatusFailing
 				return

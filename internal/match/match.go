@@ -23,13 +23,13 @@ func Func(repos, events []string, trusted bool) func(*drone.Repo, *drone.Build) 
 	return func(repo *drone.Repo, build *drone.Build) bool {
 		// if trusted mode is enabled, only match repositories
 		// that are trusted.
-		if trusted && repo.Trusted == false {
+		if trusted && !repo.Trusted {
 			return false
 		}
-		if match(repo.Slug, repos) == false {
+		if !match(repo.Slug, repos) {
 			return false
 		}
-		if match(build.Event, events) == false {
+		if !match(build.Event, events) {
 			return false
 		}
 		return true

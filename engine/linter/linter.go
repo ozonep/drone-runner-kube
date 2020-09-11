@@ -12,8 +12,8 @@ import (
 
 	"github.com/bmatcuk/doublestar"
 	"github.com/ozonep/drone-runner-kube/engine/resource"
-	"github.com/ozonep/drone/pkg/drone"
 	"github.com/ozonep/drone-runner-kube/pkg/manifest"
+	"github.com/ozonep/drone/pkg/drone"
 )
 
 // ErrDuplicateStepName is returned when two Pipeline steps
@@ -99,7 +99,7 @@ func checkStep(step *resource.Step, trusted bool) error {
 	if step.Image == "" {
 		return errors.New("linter: invalid or missing image")
 	}
-	if trusted == false && step.Privileged {
+	if !trusted && step.Privileged {
 		return errors.New("linter: untrusted repositories cannot enable privileged mode")
 	}
 	for _, mount := range step.Volumes {
@@ -145,21 +145,21 @@ func checkVolumes(pipeline *resource.Pipeline, trusted bool) error {
 }
 
 func checkHostPathVolume(volume *resource.VolumeHostPath, trusted bool) error {
-	if trusted == false {
+	if !trusted {
 		return errors.New("linter: untrusted repositories cannot mount host volumes")
 	}
 	return nil
 }
 
 func checkClaimVolume(volume *resource.VolumeClaim, trusted bool) error {
-	if trusted == false {
+	if !trusted {
 		return errors.New("linter: untrusted repositories cannot mount PVC")
 	}
 	return nil
 }
 
 func checkEmptyDirVolume(volume *resource.VolumeEmptyDir, trusted bool) error {
-	if trusted == false && volume.Medium == "memory" {
+	if !trusted && volume.Medium == "memory" {
 		return errors.New("linter: untrusted repositories cannot mount in-memory volumes")
 	}
 	return nil

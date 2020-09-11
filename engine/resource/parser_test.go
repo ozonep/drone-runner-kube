@@ -187,7 +187,7 @@ func TestMatch(t *testing.T) {
 		Kind: "pipeline",
 		Type: "kubernetes",
 	}
-	if match(r) == false {
+	if !match(r) {
 		t.Errorf("Expect match, got false")
 	}
 
@@ -195,7 +195,7 @@ func TestMatch(t *testing.T) {
 		Kind: "approval",
 		Type: "kubernetes",
 	}
-	if match(r) == true {
+	if match(r) {
 		t.Errorf("Expect kind mismatch, got true")
 	}
 
@@ -203,7 +203,7 @@ func TestMatch(t *testing.T) {
 		Kind: "pipeline",
 		Type: "dummy",
 	}
-	if match(r) == true {
+	if match(r) {
 		t.Errorf("Expect type mismatch, got true")
 	}
 

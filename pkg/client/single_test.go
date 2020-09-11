@@ -40,7 +40,7 @@ func TestSingleFlightPanic(t *testing.T) {
 			t.Errorf("Expect Request to recover from panic")
 		}
 		client.mu.Lock()
-		client.mu.Unlock()
+		defer client.mu.Unlock()
 	}()
 
 	client.Request(noContext, nil)

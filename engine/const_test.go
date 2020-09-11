@@ -42,7 +42,7 @@ func TestPullPolicy_Marshal(t *testing.T) {
 			t.Error(err)
 			return
 		}
-		if bytes.Equal([]byte(test.data), data) == false {
+		if !bytes.Equal([]byte(test.data), data) {
 			t.Errorf("Failed to marshal policy %s", test.policy)
 		}
 	}

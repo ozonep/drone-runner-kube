@@ -27,7 +27,7 @@ var noContext = context.Background()
 // Runner runs the pipeline.
 type Runner struct {
 	// Machine provides the runner with the name of the host
-	// machine executing the pipeline.
+	// machine executing the pipeline.;
 	Machine string
 
 	// Environ defines global environment variables that can
@@ -194,7 +194,7 @@ func (s *Runner) run(ctx context.Context, stage *drone.Stage, data *client.Conte
 	// evaluates whether or not the agent can process the
 	// pipeline. An agent may choose to reject a repository
 	// or build for security reasons.
-	if s.Match != nil && s.Match(data.Repo, data.Build) == false {
+	if s.Match != nil && !s.Match(data.Repo, data.Build) {
 		log.Error("cannot process stage, access denied")
 		state.FailAll(errors.New("insufficient permission to run the pipeline"))
 		return s.Reporter.ReportStage(noContext, state)

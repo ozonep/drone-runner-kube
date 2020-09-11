@@ -20,7 +20,7 @@ func newReplacer(w io.WriteCloser, secrets []Secret) io.WriteCloser {
 	var oldnew []string
 	for _, secret := range secrets {
 		v := secret.GetValue()
-		if len(v) == 0 || secret.IsMasked() == false {
+		if len(v) == 0 || !secret.IsMasked() {
 			continue
 		}
 

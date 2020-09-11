@@ -50,7 +50,7 @@ func (p *static) Find(ctx context.Context, in *Request) (*drone.Secret, error) {
 		// The secret can be restricted to non-pull request
 		// events. If the secret is restricted, return
 		// empty results.
-		if secret.PullRequest == false &&
+		if !secret.PullRequest &&
 			in.Build.Event == drone.EventPullRequest {
 			logger.Trace("secret: database: restricted from pull requests")
 			continue

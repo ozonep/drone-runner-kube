@@ -10,8 +10,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/ozonep/drone/pkg/drone"
 	"github.com/google/go-cmp/cmp"
+	"github.com/ozonep/drone/pkg/drone"
 )
 
 func TestParse(t *testing.T) {
@@ -131,7 +131,7 @@ func TestHeader(t *testing.T) {
 		return
 	}
 	want := []byte(`{"username":"octocat","password":"correct-horse-battery-staple"}`)
-	if bytes.Equal(got, want) == false {
+	if !bytes.Equal(got, want) {
 		t.Errorf("Could not decode credential header")
 	}
 }

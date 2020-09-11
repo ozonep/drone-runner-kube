@@ -350,7 +350,7 @@ func Test_isStageFailing(t *testing.T) {
 	s = &drone.Stage{
 		Status: drone.StatusFailing,
 	}
-	if isStageFailing(s) == false {
+	if !isStageFailing(s) {
 		t.Errorf("Expect stage failing")
 	}
 
@@ -366,7 +366,7 @@ func Test_isStageFailing(t *testing.T) {
 			},
 		},
 	}
-	if isStageFailing(s) == false {
+	if !isStageFailing(s) {
 		t.Errorf("Expect stage failing if step failing")
 	}
 }
@@ -375,12 +375,12 @@ func Test_isBuildFailing(t *testing.T) {
 	v := &drone.Build{
 		Status: drone.StatusPassing,
 	}
-	if isBuildFailing(v) == true {
+	if isBuildFailing(v) {
 		t.Errorf("Expect build passing")
 	}
 
 	v.Status = drone.StatusFailing
-	if isBuildFailing(v) == false {
+	if !isBuildFailing(v) {
 		t.Errorf("Expect build failing")
 	}
 
@@ -389,7 +389,7 @@ func Test_isBuildFailing(t *testing.T) {
 		{Status: drone.StatusPassing},
 		{Status: drone.StatusFailing},
 	}
-	if isBuildFailing(v) == false {
+	if !isBuildFailing(v) {
 		t.Errorf("Expect build failing if stage failing")
 	}
 
@@ -398,7 +398,7 @@ func Test_isBuildFailing(t *testing.T) {
 		{Status: drone.StatusRunning},
 		{Status: drone.StatusPending},
 	}
-	if isBuildFailing(v) == true {
+	if isBuildFailing(v) {
 		t.Errorf("Expect build passing if all stages passing")
 	}
 }

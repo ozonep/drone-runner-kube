@@ -10,18 +10,17 @@ import (
 	"context"
 	"encoding/json"
 	"io/ioutil"
-	"os"
 	"testing"
 
 	"github.com/dchest/uniuri"
 	"github.com/ozonep/drone-runner-kube/engine"
 	"github.com/ozonep/drone-runner-kube/engine/resource"
-	"github.com/ozonep/drone/pkg/drone"
 	"github.com/ozonep/drone-runner-kube/pkg/environ/provider"
 	"github.com/ozonep/drone-runner-kube/pkg/manifest"
 	"github.com/ozonep/drone-runner-kube/pkg/pipeline/runtime"
 	"github.com/ozonep/drone-runner-kube/pkg/registry"
 	"github.com/ozonep/drone-runner-kube/pkg/secret"
+	"github.com/ozonep/drone/pkg/drone"
 
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/go-cmp/cmp/cmpopts"
@@ -236,10 +235,4 @@ func testCompile(t *testing.T, source, golden string) *engine.Spec {
 	}
 
 	return got.(*engine.Spec)
-}
-
-func dump(v interface{}) {
-	enc := json.NewEncoder(os.Stdout)
-	enc.SetIndent("", "  ")
-	enc.Encode(v)
 }

@@ -29,7 +29,7 @@ func Command() (string, []string) {
 func Script(commands []string) string {
 	buf := new(bytes.Buffer)
 	fmt.Fprintln(buf)
-	fmt.Fprintf(buf, optionScript)
+	fmt.Fprint(buf, optionScript)
 	fmt.Fprintln(buf)
 	for _, command := range commands {
 		escaped := fmt.Sprintf("%q", "+ "+command)

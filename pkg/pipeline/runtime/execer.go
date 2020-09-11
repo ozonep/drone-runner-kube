@@ -8,10 +8,10 @@ import (
 	"context"
 	"sync"
 
-	"github.com/ozonep/drone/pkg/drone"
 	"github.com/ozonep/drone-runner-kube/pkg/environ"
 	"github.com/ozonep/drone-runner-kube/pkg/logger"
 	"github.com/ozonep/drone-runner-kube/pkg/pipeline"
+	"github.com/ozonep/drone/pkg/drone"
 
 	"github.com/hashicorp/go-multierror"
 	"github.com/natessilva/dag"
@@ -170,7 +170,7 @@ func (e *Execer) exec(ctx context.Context, state *pipeline.State, spec Spec, ste
 		return nil
 	case step.GetRunPolicy() == RunAlways:
 		break
-	case step.GetRunPolicy() == RunOnFailure && state.Failed() == false:
+	case step.GetRunPolicy() == RunOnFailure && !state.Failed():
 		state.Skip(step.GetName())
 		return e.reporter.ReportStep(noContext, state, step.GetName())
 	case step.GetRunPolicy() == RunOnSuccess && state.Failed():

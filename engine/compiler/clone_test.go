@@ -10,12 +10,12 @@ import (
 	"github.com/dchest/uniuri"
 	"github.com/ozonep/drone-runner-kube/engine"
 	"github.com/ozonep/drone-runner-kube/engine/resource"
-	"github.com/ozonep/drone/pkg/drone"
 	"github.com/ozonep/drone-runner-kube/pkg/environ/provider"
 	"github.com/ozonep/drone-runner-kube/pkg/manifest"
 	"github.com/ozonep/drone-runner-kube/pkg/pipeline/runtime"
 	"github.com/ozonep/drone-runner-kube/pkg/registry"
 	"github.com/ozonep/drone-runner-kube/pkg/secret"
+	"github.com/ozonep/drone/pkg/drone"
 
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/go-cmp/cmp/cmpopts"
@@ -51,11 +51,11 @@ func TestClone(t *testing.T) {
 			RunPolicy:   runtime.RunAlways,
 			WorkingDir:  "/drone/src",
 			Volumes: []*engine.VolumeMount{
-				&engine.VolumeMount{
+				{
 					Name: "_workspace",
 					Path: "/drone/src",
 				},
-				&engine.VolumeMount{
+				{
 					Name: "_status",
 					Path: "/run/drone",
 				},

@@ -26,7 +26,7 @@ type Replacer struct {
 func New(w io.WriteCloser, secrets []*engine.Secret) io.WriteCloser {
 	var oldnew []string
 	for _, secret := range secrets {
-		if len(secret.Data) == 0 || secret.Mask == false {
+		if len(secret.Data) == 0 || !secret.Mask {
 			continue
 		}
 		name := strings.ToLower(secret.Name)

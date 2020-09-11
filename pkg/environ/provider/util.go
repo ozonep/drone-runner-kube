@@ -44,7 +44,7 @@ func FilterMasked(v []*Variable) []*Variable {
 func FilterUnmasked(v []*Variable) []*Variable {
 	var filtered []*Variable
 	for _, vv := range v {
-		if vv.Mask == false {
+		if !vv.Mask {
 			filtered = append(filtered, vv)
 		}
 	}

@@ -14,7 +14,7 @@ import (
 
 // regular expression to extract the pull request number
 // from the git ref (e.g. refs/pulls/{d}/head)
-var re = regexp.MustCompile("\\d+")
+var re = regexp.MustCompile(`\d+`)
 
 // mirros the func map in template.go
 var funcMap = map[string]interface{}{

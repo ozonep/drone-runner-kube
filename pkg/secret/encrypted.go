@@ -44,7 +44,7 @@ func (p *encrypted) Find(ctx context.Context, in *Request) (*drone.Secret, error
 	// if the build event is a pull request and the source
 	// repository is a fork, the secret is not exposed to
 	// the pipeline, for security reasons.
-	if in.Repo.Private == false &&
+	if !in.Repo.Private &&
 		in.Build.Event == drone.EventPullRequest &&
 		in.Build.Fork != "" {
 		logger.Trace("secret: encrypted: restricted from forks")

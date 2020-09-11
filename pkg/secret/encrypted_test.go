@@ -7,8 +7,8 @@ package secret
 import (
 	"testing"
 
-	"github.com/ozonep/drone/pkg/drone"
 	"github.com/ozonep/drone-runner-kube/pkg/manifest"
+	"github.com/ozonep/drone/pkg/drone"
 )
 
 func TestEncrypted(t *testing.T) {

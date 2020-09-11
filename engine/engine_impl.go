@@ -12,10 +12,10 @@ import (
 	"path/filepath"
 	"time"
 
+	"github.com/hashicorp/go-multierror"
 	"github.com/ozonep/drone-runner-kube/internal/docker/image"
 	"github.com/ozonep/drone-runner-kube/pkg/livelog"
 	"github.com/ozonep/drone-runner-kube/pkg/pipeline/runtime"
-	"github.com/hashicorp/go-multierror"
 	v1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	k8sruntime "k8s.io/apimachinery/pkg/runtime"
@@ -127,9 +127,7 @@ func (k *Kubernetes) Setup(ctx context.Context, specv runtime.Spec) error {
 func (k *Kubernetes) Destroy(ctx context.Context, specv runtime.Spec) error {
 	// HACK: this timeout delays deleting the Pod to ensure
 	// there is enough time to stream the logs.
-	select {
-	case <-time.After(time.Second * 5):
-	}
+	<-time.After(time.Second * 5)
 
 	spec := specv.(*Spec)
 	var result error
