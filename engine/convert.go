@@ -362,6 +362,8 @@ func toPullPolicy(policy PullPolicy) v1.PullPolicy {
 		return v1.PullNever
 	case PullIfNotExists:
 		return v1.PullIfNotPresent
+	case PullDefault:
+		return v1.PullIfNotPresent
 	default:
 		return v1.PullIfNotPresent
 	}

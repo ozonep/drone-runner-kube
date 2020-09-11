@@ -125,6 +125,8 @@ func convertLevel(level logrus.Level) Level {
 		return LevelDebug
 	case logrus.TraceLevel:
 		return LevelTrace
+	case logrus.InfoLevel:
+		return LevelInfo
 	default:
 		return LevelInfo
 	}

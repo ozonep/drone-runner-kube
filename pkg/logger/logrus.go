@@ -17,7 +17,6 @@ type wrapLogrus struct {
 
 func (w *wrapLogrus) WithError(err error) Logger {
 	return &wrapLogrus{w.Entry.WithError(err)}
-	return nil
 }
 
 func (w *wrapLogrus) WithField(key string, value interface{}) Logger {

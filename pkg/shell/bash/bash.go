@@ -22,7 +22,7 @@ func Command() (string, []string) {
 }
 
 // Script converts a slice of individual shell commands to
-// a posix-compliant shell script.
+// a posix-compliant shell script.;
 func Script(commands []string) string {
 	buf := new(bytes.Buffer)
 	fmt.Fprintln(buf)
