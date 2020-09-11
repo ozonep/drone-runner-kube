@@ -12,9 +12,9 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/drone-runners/drone-runner-kube/internal/docker/image"
-	"github.com/drone/runner-go/livelog"
-	"github.com/drone/runner-go/pipeline/runtime"
+	"github.com/ozonep/drone-runner-kube/internal/docker/image"
+	"github.com/ozonep/drone-runner-kube/pkg/livelog"
+	"github.com/ozonep/drone-runner-kube/pkg/pipeline/runtime"
 	"github.com/hashicorp/go-multierror"
 	v1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"

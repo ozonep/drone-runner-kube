@@ -7,10 +7,10 @@ package compiler
 import (
 	"strings"
 
-	"github.com/drone-runners/drone-runner-kube/engine"
-	"github.com/drone-runners/drone-runner-kube/engine/compiler/shell"
-	"github.com/drone-runners/drone-runner-kube/engine/compiler/shell/powershell"
-	"github.com/drone-runners/drone-runner-kube/engine/resource"
+	"github.com/ozonep/drone-runner-kube/engine"
+	"github.com/ozonep/drone-runner-kube/engine/compiler/shell"
+	"github.com/ozonep/drone-runner-kube/engine/compiler/shell/powershell"
+	"github.com/ozonep/drone-runner-kube/engine/resource"
 )
 
 // helper function configures the pipeline script for the

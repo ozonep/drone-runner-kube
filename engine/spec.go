@@ -7,8 +7,8 @@ package engine
 import (
 	"sync"
 
-	"github.com/drone/runner-go/environ"
-	"github.com/drone/runner-go/pipeline/runtime"
+	"github.com/ozonep/drone-runner-kube/pkg/environ"
+	"github.com/ozonep/drone-runner-kube/pkg/pipeline/runtime"
 )
 
 type (

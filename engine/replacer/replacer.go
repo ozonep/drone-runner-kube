@@ -11,7 +11,7 @@ import (
 	"io"
 	"strings"
 
-	"github.com/drone-runners/drone-runner-kube/engine"
+	"github.com/ozonep/drone-runner-kube/engine"
 )
 
 const maskedf = "[secret:%s]"

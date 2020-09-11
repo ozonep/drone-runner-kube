@@ -5,9 +5,9 @@
 package policy
 
 import (
-	"github.com/drone-runners/drone-runner-kube/engine"
-	"github.com/drone/runner-go/environ"
-	"github.com/drone/runner-go/manifest"
+	"github.com/ozonep/drone-runner-kube/engine"
+	"github.com/ozonep/drone-runner-kube/pkg/environ"
+	"github.com/ozonep/drone-runner-kube/pkg/manifest"
 )
 
 type (

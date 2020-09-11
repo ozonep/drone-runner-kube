@@ -7,7 +7,7 @@ package match
 import (
 	"path/filepath"
 
-	"github.com/drone/drone-go/drone"
+	"github.com/ozonep/drone/pkg/drone"
 )
 
 // NOTE most runners do not require match capabilities. This is

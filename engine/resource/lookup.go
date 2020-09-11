@@ -7,7 +7,7 @@ package resource
 import (
 	"errors"
 
-	"github.com/drone/runner-go/manifest"
+	"github.com/ozonep/drone-runner-kube/pkg/manifest"
 )
 
 // Lookup returns the named pipeline from the Manifest.

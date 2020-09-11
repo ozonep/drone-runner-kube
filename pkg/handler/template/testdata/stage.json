@@ -1,0 +1,94 @@
+{
+    "Repo": {
+        "Slug": "octocat/hello-world",
+        "Name": "hello-world"
+    },
+    "Build": {
+        "After": "7fd1a60b01f91b314f59955a4e4d4e80d8edf11d",
+        "Event": "push",
+        "Source": "master",
+        "Target": "master",
+        "Message": "Merge pull request #6 from Spaceghost/patch-1",
+        "Author": "octocat",
+        "AuthorAvatar": "https://avatars0.githubusercontent.com/u/583231?s=460&v=4",
+        "Number": 42
+    },
+    "Stage": {
+        "Name": "test",
+        "Status": "running",
+        "Started": 1563059000,
+        "Created": 1563059000,
+        "Steps": [
+            { "Name": "clone", "Status": "success" },
+            { "Name": "build", "Status": "running" },
+            { "Name": "test", "Status": "success" },
+            { "Name": "deploy", "Status": "success" }
+        ]
+    },
+    "Logs": [
+        {
+            "Level": "debug",
+            "Message": "updated stage to running",
+            "Data": {
+                "build.id": 110,
+                "build.number": 110,
+                "repo.id": 48,
+                "repo.name": "hello-world",
+                "repo.namespace": "octocat",
+                "stage.id": 110,
+                "stage.name": "test",
+                "stage.number": 1,
+                "thread": 1
+            },
+            "Unix": 1563058875
+        },
+        {
+            "Level": "debug",
+            "Message": "process started",
+            "Data": {
+                "build.id": 110,
+                "build.number": 110,
+                "repo.id": 48,
+                "repo.name": "hello-world",
+                "repo.namespace": "octocat",
+                "stage.id": 110,
+                "stage.name": "test",
+                "stage.number": 1,
+                "thread": 1
+            },
+            "Unix": 1563058875
+        },
+        {
+            "Level": "debug",
+            "Message": "process finished",
+            "Data": {
+                "build.id": 110,
+                "build.number": 110,
+                "repo.id": 48,
+                "repo.name": "hello-world",
+                "repo.namespace": "octocat",
+                "stage.id": 110,
+                "stage.name": "test",
+                "stage.number": 1,
+                "thread": 1
+            },
+            "Unix": 1563058975
+        },
+        {
+            "Level": "debug",
+            "Message": "updated stage to complete",
+            "Data": {
+                "build.id": 110,
+                "build.number": 110,
+                "repo.id": 48,
+                "repo.name": "hello-world",
+                "repo.namespace": "octocat",
+                "stage.id": 110,
+                "stage.name": "test",
+                "stage.number": 1,
+                "thread": 1
+            },
+            "Unix": 1563058977
+        }
+    ]
+}

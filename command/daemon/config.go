@@ -9,7 +9,7 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/drone-runners/drone-runner-kube/engine/policy"
+	"github.com/ozonep/drone-runner-kube/engine/policy"
 
 	"github.com/buildkite/yaml"
 	"github.com/docker/go-units"

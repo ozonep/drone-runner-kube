@@ -7,8 +7,8 @@ package compiler
 import (
 	"strings"
 
-	"github.com/drone-runners/drone-runner-kube/engine"
-	"github.com/drone-runners/drone-runner-kube/engine/resource"
+	"github.com/ozonep/drone-runner-kube/engine"
+	"github.com/ozonep/drone-runner-kube/engine/resource"
 )
 
 const (

@@ -7,10 +7,10 @@ package compiler
 import (
 	"strings"
 
-	"github.com/drone-runners/drone-runner-kube/engine"
-	"github.com/drone-runners/drone-runner-kube/engine/resource"
-	"github.com/drone/drone-go/drone"
-	"github.com/drone/runner-go/manifest"
+	"github.com/ozonep/drone-runner-kube/engine"
+	"github.com/ozonep/drone-runner-kube/engine/resource"
+	"github.com/ozonep/drone/pkg/drone"
+	"github.com/ozonep/drone-runner-kube/pkg/manifest"
 )
 
 // helper function returns true if the step is configured to

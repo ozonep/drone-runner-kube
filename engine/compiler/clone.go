@@ -7,10 +7,10 @@ package compiler
 import (
 	"strconv"
 
-	"github.com/drone-runners/drone-runner-kube/engine"
-	"github.com/drone-runners/drone-runner-kube/engine/resource"
-	"github.com/drone/runner-go/manifest"
-	"github.com/drone/runner-go/pipeline/runtime"
+	"github.com/ozonep/drone-runner-kube/engine"
+	"github.com/ozonep/drone-runner-kube/engine/resource"
+	"github.com/ozonep/drone-runner-kube/pkg/manifest"
+	"github.com/ozonep/drone-runner-kube/pkg/pipeline/runtime"
 )
 
 // default name of the clone step.

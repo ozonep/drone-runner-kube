@@ -7,7 +7,7 @@ package match
 import (
 	"testing"
 
-	"github.com/drone/drone-go/drone"
+	"github.com/ozonep/drone/pkg/drone"
 )
 
 func TestFunc(t *testing.T) {

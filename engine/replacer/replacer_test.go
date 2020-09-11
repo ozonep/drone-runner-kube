@@ -11,7 +11,7 @@ import (
 	"io"
 	"testing"
 
-	"github.com/drone-runners/drone-runner-kube/engine"
+	"github.com/ozonep/drone-runner-kube/engine"
 )
 
 func TestReplace(t *testing.T) {

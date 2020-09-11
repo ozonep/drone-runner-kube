@@ -7,9 +7,9 @@ package compiler
 import (
 	"testing"
 
-	"github.com/drone-runners/drone-runner-kube/engine"
-	"github.com/drone-runners/drone-runner-kube/engine/resource"
-	"github.com/drone/runner-go/manifest"
+	"github.com/ozonep/drone-runner-kube/engine"
+	"github.com/ozonep/drone-runner-kube/engine/resource"
+	"github.com/ozonep/drone-runner-kube/pkg/manifest"
 )
 
 func TestSetupWorkspace(t *testing.T) {

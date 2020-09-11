@@ -4,7 +4,7 @@
 
 package resource
 
-import "github.com/drone/runner-go/manifest"
+import "github.com/ozonep/drone-runner-kube/pkg/manifest"
 
 var (
 	_ manifest.Resource          = (*Pipeline)(nil)

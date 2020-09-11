@@ -4,7 +4,7 @@
 
 package policy
 
-import "github.com/drone/runner-go/manifest"
+import "github.com/ozonep/drone-runner-kube/pkg/manifest"
 
 // Match returns the matching Policy. If there is no matching
 // Policy, but a default Policy is defined, the default Policy

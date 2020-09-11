@@ -11,9 +11,9 @@ import (
 	"strings"
 
 	"github.com/bmatcuk/doublestar"
-	"github.com/drone-runners/drone-runner-kube/engine/resource"
-	"github.com/drone/drone-go/drone"
-	"github.com/drone/runner-go/manifest"
+	"github.com/ozonep/drone-runner-kube/engine/resource"
+	"github.com/ozonep/drone/pkg/drone"
+	"github.com/ozonep/drone-runner-kube/pkg/manifest"
 )
 
 // ErrDuplicateStepName is returned when two Pipeline steps

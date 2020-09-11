@@ -7,12 +7,12 @@ package compiler
 import (
 	"strings"
 
-	"github.com/drone-runners/drone-runner-kube/engine"
-	"github.com/drone-runners/drone-runner-kube/engine/resource"
-	"github.com/drone-runners/drone-runner-kube/internal/docker/image"
-	"github.com/drone-runners/drone-runner-kube/internal/encoder"
+	"github.com/ozonep/drone-runner-kube/engine"
+	"github.com/ozonep/drone-runner-kube/engine/resource"
+	"github.com/ozonep/drone-runner-kube/internal/docker/image"
+	"github.com/ozonep/drone-runner-kube/internal/encoder"
 
-	"github.com/drone/runner-go/pipeline/runtime"
+	"github.com/ozonep/drone-runner-kube/pkg/pipeline/runtime"
 )
 
 const placeholderImage = "drone/placeholder:1"
@@ -50,7 +50,6 @@ func createStep(spec *resource.Pipeline, src *resource.Step) *engine.Step {
 	// appends the settings variables to the
 	// container definition.
 	for key, value := range src.Settings {
-		// fix https://github.com/drone/drone-yaml/issues/13
 		if value == nil {
 			continue
 		}

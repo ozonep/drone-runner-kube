@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/drone/drone-go/drone"
+	"github.com/ozonep/drone/pkg/drone"
 
 	"gopkg.in/alecthomas/kingpin.v2"
 )
