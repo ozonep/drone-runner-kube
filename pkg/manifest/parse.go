@@ -7,6 +7,7 @@ package manifest
 import (
 	"bufio"
 	"bytes"
+	"errors"
 	"io"
 	"os"
 	"strings"
@@ -97,7 +98,7 @@ func ParseRaw(r io.Reader) ([]*RawResource, error) {
 		if isTerminator(line) {
 			break
 		}
-		if scanner.Err() == io.EOF {
+		if errors.Is(scanner.Err(), io.EOF) {
 			break
 		}
 		resource.Data = append(

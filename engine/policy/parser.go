@@ -6,6 +6,7 @@ package policy
 
 import (
 	"bytes"
+	"errors"
 	"io"
 	"io/ioutil"
 
@@ -29,7 +30,7 @@ func Parse(b []byte) ([]*Policy, error) {
 	for {
 		out := new(Policy)
 		err := dec.Decode(out)
-		if err == io.EOF {
+		if errors.Is(err, io.EOF) {
 			break
 		}
 		if err != nil {

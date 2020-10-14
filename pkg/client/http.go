@@ -209,7 +209,7 @@ func (p *HTTPClient) retry(ctx context.Context, method, path string, in, out int
 			return res, err
 		}
 		// do not retry on optimisitic lock errors
-		if err == ErrOptimisticLock {
+		if errors.Is(err, ErrOptimisticLock) {
 			return res, err
 		}
 		if res != nil {

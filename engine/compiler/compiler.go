@@ -451,10 +451,6 @@ func (c *Compiler) Compile(ctx context.Context, args runtime.CompilerArgs) runti
 		Repo:  args.Repo,
 		Build: args.Build,
 	})
-	if err != nil {
-		// TODO (bradrydzewski) return an error to the caller
-		// if the provider returns an error.
-	}
 
 	// get registry credentials from secrets
 	for _, name := range pipeline.PullSecrets {

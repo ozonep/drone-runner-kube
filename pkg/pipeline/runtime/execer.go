@@ -6,6 +6,7 @@ package runtime
 
 import (
 	"context"
+	"errors"
 	"sync"
 
 	"github.com/ozonep/drone-runner-kube/pkg/environ"
@@ -153,9 +154,6 @@ func (e *Execer) exec(ctx context.Context, state *pipeline.State, spec Spec, ste
 			// recover from a panic to ensure the semaphore is
 			// released to prevent deadlock. we do not expect a
 			// panic, however, we are being overly cautious.
-			if r := recover(); r != nil {
-				// TODO(bradrydzewski) log the panic.
-			}
 			// release the semaphore
 			e.sem.Release(1)
 		}()
@@ -236,8 +234,7 @@ func (e *Execer) exec(ctx context.Context, state *pipeline.State, spec Spec, ste
 		return result
 	}
 
-	switch err {
-	case context.Canceled, context.DeadlineExceeded:
+	if errors.Is(err, context.Canceled) || errors.Is(err, context.DeadlineExceeded) {
 		state.Cancel()
 		return nil
 	}
