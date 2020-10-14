@@ -9,8 +9,8 @@ import (
 
 	"github.com/ozonep/drone-runner-kube/engine"
 	"github.com/ozonep/drone-runner-kube/engine/resource"
-	"github.com/ozonep/drone/pkg/drone"
 	"github.com/ozonep/drone-runner-kube/pkg/manifest"
+	"github.com/ozonep/drone/pkg/drone"
 )
 
 // helper function returns true if the step is configured to

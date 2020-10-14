@@ -5,8 +5,8 @@
 package main
 
 import (
-	"github.com/ozonep/drone-runner-kube/command"
 	_ "github.com/joho/godotenv/autoload"
+	"github.com/ozonep/drone-runner-kube/command"
 )
 
 func main() {

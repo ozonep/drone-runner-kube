@@ -16,13 +16,13 @@ import (
 	"github.com/ozonep/drone-runner-kube/engine/compiler"
 	"github.com/ozonep/drone-runner-kube/engine/linter"
 	"github.com/ozonep/drone-runner-kube/engine/resource"
-	"github.com/ozonep/drone/pkg/envsubst"
 	"github.com/ozonep/drone-runner-kube/pkg/environ"
 	"github.com/ozonep/drone-runner-kube/pkg/environ/provider"
 	"github.com/ozonep/drone-runner-kube/pkg/manifest"
 	"github.com/ozonep/drone-runner-kube/pkg/pipeline/runtime"
 	"github.com/ozonep/drone-runner-kube/pkg/registry"
 	"github.com/ozonep/drone-runner-kube/pkg/secret"
+	"github.com/ozonep/drone/pkg/envsubst"
 
 	"gopkg.in/alecthomas/kingpin.v2"
 )

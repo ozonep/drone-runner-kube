@@ -7,9 +7,9 @@ package registry
 import (
 	"context"
 
-	"github.com/ozonep/drone/pkg/drone"
 	"github.com/ozonep/drone-runner-kube/pkg/logger"
 	"github.com/ozonep/drone-runner-kube/pkg/registry/auths"
+	"github.com/ozonep/drone/pkg/drone"
 )
 
 // File returns a new registry credential provider that

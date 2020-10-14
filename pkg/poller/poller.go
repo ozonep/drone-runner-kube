@@ -8,9 +8,9 @@ import (
 	"context"
 	"sync"
 
-	"github.com/ozonep/drone/pkg/drone"
 	"github.com/ozonep/drone-runner-kube/pkg/client"
 	"github.com/ozonep/drone-runner-kube/pkg/logger"
+	"github.com/ozonep/drone/pkg/drone"
 )
 
 var noContext = context.Background()

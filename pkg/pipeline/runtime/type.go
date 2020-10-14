@@ -8,9 +8,9 @@ import (
 	"context"
 	"io"
 
-	"github.com/ozonep/drone/pkg/drone"
 	"github.com/ozonep/drone-runner-kube/pkg/manifest"
 	"github.com/ozonep/drone-runner-kube/pkg/secret"
+	"github.com/ozonep/drone/pkg/drone"
 )
 
 type (

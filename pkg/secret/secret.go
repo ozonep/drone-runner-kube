@@ -8,8 +8,8 @@ package secret
 import (
 	"context"
 
-	"github.com/ozonep/drone/pkg/drone"
 	"github.com/ozonep/drone-runner-kube/pkg/manifest"
+	"github.com/ozonep/drone/pkg/drone"
 )
 
 // Request provides arguments for requesting a secret from

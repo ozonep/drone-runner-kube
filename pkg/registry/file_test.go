@@ -7,8 +7,8 @@ package registry
 import (
 	"testing"
 
-	"github.com/ozonep/drone/pkg/drone"
 	"github.com/google/go-cmp/cmp"
+	"github.com/ozonep/drone/pkg/drone"
 )
 
 func TestFile(t *testing.T) {

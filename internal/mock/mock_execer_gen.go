@@ -6,9 +6,9 @@ package mock
 
 import (
 	context "context"
+	gomock "github.com/golang/mock/gomock"
 	engine "github.com/ozonep/drone-runner-kube/engine"
 	pipeline "github.com/ozonep/drone-runner-kube/pkg/pipeline"
-	gomock "github.com/golang/mock/gomock"
 	reflect "reflect"
 )
 

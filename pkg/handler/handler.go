@@ -11,9 +11,9 @@ import (
 	"sort"
 	"strconv"
 
-	"github.com/ozonep/drone/pkg/drone"
 	hook "github.com/ozonep/drone-runner-kube/pkg/logger/history"
 	"github.com/ozonep/drone-runner-kube/pkg/pipeline/reporter/history"
+	"github.com/ozonep/drone/pkg/drone"
 )
 
 // HandleHealth returns a http.HandlerFunc that returns a 200

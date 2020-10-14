@@ -9,8 +9,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ozonep/drone/pkg/drone"
 	"github.com/ozonep/drone-runner-kube/pkg/client"
+	"github.com/ozonep/drone/pkg/drone"
 
 	"github.com/google/go-cmp/cmp"
 )
