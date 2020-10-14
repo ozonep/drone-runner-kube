@@ -6,6 +6,7 @@ package poller
 
 import (
 	"context"
+	"errors"
 	"sync"
 
 	"github.com/ozonep/drone-runner-kube/pkg/client"
@@ -59,7 +60,7 @@ func (p *Poller) poll(ctx context.Context, thread int) error {
 	// request a new build stage for execution from the central
 	// build server.
 	stage, err := p.Client.Request(ctx, p.Filter)
-	if err == context.Canceled || err == context.DeadlineExceeded {
+	if errors.Is(err, context.Canceled) || errors.Is(err, context.DeadlineExceeded) {
 		log.WithError(err).Trace("poller: no stage returned")
 		return nil
 	}

@@ -447,7 +447,7 @@ func (c *Compiler) Compile(ctx context.Context, args runtime.CompilerArgs) runti
 	}
 
 	// get registry credentials from registry plugins
-	creds, err := c.Registry.List(ctx, &registry.Request{
+	creds, _ := c.Registry.List(ctx, &registry.Request{
 		Repo:  args.Repo,
 		Build: args.Build,
 	})

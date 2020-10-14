@@ -6,6 +6,7 @@ package livelog
 
 import (
 	"bufio"
+	"errors"
 	"io"
 )
 
@@ -19,7 +20,7 @@ func Copy(dst io.Writer, src io.ReadCloser) error {
 			return err
 		}
 		if err != nil {
-			if err != io.EOF {
+			if !(errors.Is(err, io.EOF)) {
 				return err
 			}
 			return nil
