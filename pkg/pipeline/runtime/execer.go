@@ -117,6 +117,9 @@ func (e *Execer) Exec(ctx context.Context, spec Spec, state *pipeline.State) err
 			log.Error(err)
 		}
 		result = multierror.Append(result, err)
+		if !state.Failed() {
+			state.FailAll(err)
+		}
 	}
 
 	// once pipeline execution completes, notify the state
@@ -143,11 +146,26 @@ func (e *Execer) exec(ctx context.Context, state *pipeline.State, spec Spec, ste
 	ctx = logger.WithContext(ctx, log)
 
 	if e.sem != nil {
+		log.Trace("acquiring semaphore")
 		// the semaphore limits the number of steps that can run
 		// concurrently. acquire the semaphore and release when
 		// the pipeline completes.
-		if err := e.sem.Acquire(ctx, 1); err != nil {
+		err := e.sem.Acquire(ctx, 1)
+
+		// if acquiring the semaphore failed because the context
+		// deadline exceeded (e.g. the pipeline timed out) the
+		// state should be canceled.
+		if errors.Is(ctx.Err(), context.Canceled) || errors.Is(ctx.Err(), context.DeadlineExceeded) {
+			log.Trace("acquiring semaphore canceled")
+			state.Cancel()
 			return nil
+		}
+
+		// if acquiring the semaphore failed for unexpected reasons
+		// the pipeline should error.
+		if err != nil {
+			log.WithError(err).Errorln("failed to acquire semaphore.")
+			return err
 		}
 
 		defer func() {
@@ -156,6 +174,7 @@ func (e *Execer) exec(ctx context.Context, state *pipeline.State, spec Spec, ste
 			// panic, however, we are being overly cautious.
 			// release the semaphore
 			e.sem.Release(1)
+			log.Trace("semaphore released")
 		}()
 	}
 
@@ -219,10 +238,22 @@ func (e *Execer) exec(ctx context.Context, state *pipeline.State, spec Spec, ste
 		result = multierror.Append(result, err)
 	}
 
+	if errors.Is(ctx.Err(), context.Canceled) || errors.Is(ctx.Err(), context.DeadlineExceeded) {
+		state.Cancel()
+		return nil
+	}
+
 	if exited != nil {
-		state.Finish(step.GetName(), exited.ExitCode)
+		if exited.OOMKilled {
+			log.Debugln("received oom kill.")
+			state.Finish(step.GetName(), 137)
+		} else {
+			log.Debugf("received exit code %d", exited.ExitCode)
+			state.Finish(step.GetName(), exited.ExitCode)
+		}
 		err := e.reporter.ReportStep(noContext, state, step.GetName())
 		if err != nil {
+			log.Warnln("cannot report step status.")
 			result = multierror.Append(result, err)
 		}
 		// if the exit code is 78 the system will skip all
@@ -244,6 +275,7 @@ func (e *Execer) exec(ctx context.Context, state *pipeline.State, spec Spec, ste
 	state.Fail(step.GetName(), err)
 	err = e.reporter.ReportStep(noContext, state, step.GetName())
 	if err != nil {
+		log.Warnln("cannot report step failure.")
 		result = multierror.Append(result, err)
 	}
 	return result
