@@ -218,17 +218,17 @@ func toEnv(spec *Spec, step *Step) []v1.EnvVar {
 	return envVars
 }
 
-func toEnvFrom(step *Step) []v1.EnvFromSource {
-	return []v1.EnvFromSource{
-		{
-			SecretRef: &v1.SecretEnvSource{
-				LocalObjectReference: v1.LocalObjectReference{
-					Name: step.ID,
-				},
-			},
-		},
-	}
-}
+// func toEnvFrom(step *Step) []v1.EnvFromSource {
+// 	return []v1.EnvFromSource{
+// 		{
+// 			SecretRef: &v1.SecretEnvSource{
+// 				LocalObjectReference: v1.LocalObjectReference{
+// 					Name: step.ID,
+// 				},
+// 			},
+// 		},
+// 	}
+// }
 
 func toSecret(spec *Spec) *v1.Secret {
 	stringData := make(map[string]string)
@@ -378,6 +378,6 @@ func boolptr(v bool) *bool {
 	return &v
 }
 
-func stringptr(v string) *string {
-	return &v
-}
+// func stringptr(v string) *string {
+// 	return &v
+// }
