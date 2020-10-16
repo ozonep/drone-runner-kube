@@ -179,7 +179,7 @@ func (e *Execer) exec(ctx context.Context, state *pipeline.State, spec Spec, ste
 	}
 
 	switch {
-	case state.Skipped():
+	case state.Finished(step.GetName()):
 		return nil
 	case state.Cancelled():
 		return nil

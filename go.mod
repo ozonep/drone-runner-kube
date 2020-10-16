@@ -27,7 +27,7 @@ require (
 	github.com/kelseyhightower/envconfig v1.4.0
 	github.com/mattn/go-isatty v0.0.12
 	github.com/natessilva/dag v0.0.0-20180124060714-7194b8dcc5c4
-	github.com/ozonep/drone v0.0.0-20201014173059-5ce6010a32f9
+	github.com/ozonep/drone v0.0.0-20201016082722-ed686ce82967
 	github.com/sirupsen/logrus v1.6.0
 	golang.org/x/crypto v0.0.0-20201002170205-7f63de1d35b0
 	golang.org/x/sync v0.0.0-20200625203802-6e8e738ad208
