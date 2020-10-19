@@ -179,8 +179,6 @@ func (e *Execer) exec(ctx context.Context, state *pipeline.State, spec Spec, ste
 	}
 
 	switch {
-	case state.Finished(step.GetName()):
-		return nil
 	case state.Cancelled():
 		return nil
 	case step.GetRunPolicy() == RunNever:
@@ -193,6 +191,8 @@ func (e *Execer) exec(ctx context.Context, state *pipeline.State, spec Spec, ste
 	case step.GetRunPolicy() == RunOnSuccess && state.Failed():
 		state.Skip(step.GetName())
 		return e.reporter.ReportStep(noContext, state, step.GetName())
+	case state.Finished(step.GetName()):
+		return nil
 	}
 
 	state.Start(step.GetName())
