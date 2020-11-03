@@ -12,7 +12,7 @@ replace (
 
 require (
 	github.com/99designs/basicauth-go v0.0.0-20160802081356-2a93ba0f464d
-	github.com/bmatcuk/doublestar v1.3.2
+	github.com/bmatcuk/doublestar v1.3.3
 	github.com/buildkite/yaml v2.1.0+incompatible
 	github.com/coreos/go-semver v0.3.0
 	github.com/dchest/uniuri v0.0.0-20200228104902-7aecb25e1fe5
@@ -27,10 +27,10 @@ require (
 	github.com/kelseyhightower/envconfig v1.4.0
 	github.com/mattn/go-isatty v0.0.12
 	github.com/natessilva/dag v0.0.0-20180124060714-7194b8dcc5c4
-	github.com/ozonep/drone v0.0.0-20201023101958-35b9fa7751ed
-	github.com/sirupsen/logrus v1.6.0
-	golang.org/x/crypto v0.0.0-20201002170205-7f63de1d35b0
-	golang.org/x/sync v0.0.0-20200625203802-6e8e738ad208
+	github.com/ozonep/drone v0.0.0-20201102123252-4ea152a7d908
+	github.com/sirupsen/logrus v1.7.0
+	golang.org/x/crypto v0.0.0-20201016220609-9e8e0b390897
+	golang.org/x/sync v0.0.0-20201020160332-67f06af15bc9
 	gopkg.in/alecthomas/kingpin.v2 v2.2.6
 	k8s.io/api v0.16.15
 	k8s.io/apimachinery v0.16.15
