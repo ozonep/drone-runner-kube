@@ -4,10 +4,9 @@ go 1.15
 
 replace (
 	github.com/googleapis/gnostic => github.com/googleapis/gnostic v0.4.0
-	github.com/h2non/gock => gopkg.in/h2non/gock.v1 v1.0.14
-	k8s.io/api => k8s.io/api v0.16.15
-	k8s.io/apimachinery => k8s.io/apimachinery v0.16.15
-	k8s.io/client-go => k8s.io/client-go v0.16.15
+	github.com/h2non/gock => gopkg.in/h2non/gock.v1 v1.0.15
+	k8s.io/api => k8s.io/api v0.17.13
+	k8s.io/apimachinery => k8s.io/apimachinery v0.17.13
 )
 
 require (
@@ -27,12 +26,13 @@ require (
 	github.com/kelseyhightower/envconfig v1.4.0
 	github.com/mattn/go-isatty v0.0.12
 	github.com/natessilva/dag v0.0.0-20180124060714-7194b8dcc5c4
-	github.com/ozonep/drone v0.0.0-20201103081900-607e5cb599a2
+	github.com/ozonep/drone v0.0.0-20201106101057-9383c6ce9b43
 	github.com/sirupsen/logrus v1.7.0
 	golang.org/x/crypto v0.0.0-20201016220609-9e8e0b390897
 	golang.org/x/sync v0.0.0-20201020160332-67f06af15bc9
 	gopkg.in/alecthomas/kingpin.v2 v2.2.6
-	k8s.io/api v0.16.15
-	k8s.io/apimachinery v0.16.15
-	k8s.io/client-go v10.0.0+incompatible
+	k8s.io/api v0.17.13
+	k8s.io/apimachinery v0.17.13
+	k8s.io/client-go v0.17.13
+	k8s.io/utils v0.0.0-20201104234853-8146046b121e // indirect
 )
