@@ -226,6 +226,7 @@ func (k *Kubernetes) waitFor(ctx context.Context, spec *Spec, conditionFunc func
 		if !exists {
 			return true, fmt.Errorf("pod doesn't exist")
 		}
+
 		pod, ok := obj.(*v1.Pod)
 		if !ok {
 			return true, fmt.Errorf("unexpected object type: %v", obj)
@@ -241,6 +242,7 @@ func (k *Kubernetes) waitFor(ctx context.Context, spec *Spec, conditionFunc func
 			if !ok || pod.ObjectMeta.Name != spec.PodSpec.Name {
 				return false, nil
 			}
+
 			return conditionFunc(pod)
 		case watch.Deleted:
 			return false, fmt.Errorf("pod got deleted")
