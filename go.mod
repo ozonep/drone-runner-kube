@@ -7,6 +7,7 @@ replace (
 	github.com/h2non/gock => gopkg.in/h2non/gock.v1 v1.0.15
 	k8s.io/api => k8s.io/api v0.17.13
 	k8s.io/apimachinery => k8s.io/apimachinery v0.17.13
+	k8s.io/client-go => k8s.io/client-go v0.17.13
 )
 
 require (
@@ -26,7 +27,7 @@ require (
 	github.com/kelseyhightower/envconfig v1.4.0
 	github.com/mattn/go-isatty v0.0.12
 	github.com/natessilva/dag v0.0.0-20180124060714-7194b8dcc5c4
-	github.com/ozonep/drone v0.0.0-20201106101057-9383c6ce9b43
+	github.com/ozonep/drone v0.0.0-20201106104914-e99cc0b83bb6
 	github.com/sirupsen/logrus v1.7.0
 	golang.org/x/crypto v0.0.0-20201016220609-9e8e0b390897
 	golang.org/x/sync v0.0.0-20201020160332-67f06af15bc9
